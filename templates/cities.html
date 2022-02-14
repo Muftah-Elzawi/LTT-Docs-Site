@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+      <div class="col">
+        
+        <div>{{MAP|safe}}</div>
+      </div>
+    </div>
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Address</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Description</th>
+      <th scope="col">Files</th>
+    </tr>
+  </thead>
+  {% if citySites %}
+  {% for citySite in citySites %}
+    <tbody>
+      <tr>
+        <th scope="row">{{citySite.siteName}}</th>
+        <td>{{citySite.siteCity}}</td>
+        <td>{{citySite.siteAddress}}</td>
+        <td>{{citySite.siteOwner}} <span>{{citySite.siteOwnerNumber}}</span></td>
+        <td>{{citySite.siteDescription}}</td>
+        <td><a href="{{citySite.siteFiles.url}}" class="card-link" download>
+          <button type="button" class="btn btn-primary">{{citySite.siteFiles}}</button>
+        </a></td>
+      </tr>
+  {% endfor %}
+  {% else %}
+  <h1> there is no results for "{{query}}"</h1>
+  {% endif %}
+</tbody>
+</table>
+{% endblock content %}

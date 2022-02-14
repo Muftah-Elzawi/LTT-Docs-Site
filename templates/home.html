@@ -1,0 +1,92 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+      <div class="col">
+        
+        <div>{{MAP|safe}}</div>
+      </div>
+    </div>
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Address</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Description</th>
+      <th scope="col">Files</th>
+    </tr>
+  </thead>
+{% if bgzsites %}
+{% for bgzsite in bgzsites %}
+  <tbody>
+    <tr>
+      <th scope="row"><a href="Site/{{bgzsite.id}}"> {{bgzsite.siteName}}</a></th>
+      <td>{{bgzsite.siteCity}}</td>
+      <td>{{bgzsite.siteAddress}}</td>
+      <td>{{bgzsite.siteOwner}} <span>{{bgzsite.siteOwnerNumber}}</span></td>
+      <td>{{bgzsite.siteDescription}}</td>
+      <td><a href="{{bgzsite.siteFiles.url}}" class="card-link" download>
+        <button type="button" class="btn btn-primary">{{bgzsite.siteFiles}}</button>
+      </a></td>
+    </tr>
+{% endfor %}
+{% else %}
+<h1> there is no results for "{{query}}"</h1>
+{% endif %}
+    <!-- <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr> -->
+  </tbody>
+</table>
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col">
+<div class="list-group">
+{% if bgzsites %}
+{% for bgzsite in bgzsites %}
+    <div class="list-group-item">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{bgzsite.siteName}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{bgzsite.siteHistory}}</h6>
+          <p class="card-text">{{bgzsite.siteDescription}}</p>
+          <a href="#" class="card-link">{{bgzsite.siteCity}}</a>
+          <a href="#" class="card-link">{{bgzsite.siteAddress}}</a>
+          <a href="#" class="card-link" download>
+            <button type="button" class="btn btn-primary">{{bgzsite.siteFiles}}</button>
+          </a>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+{% else %}
+<h1> there is no results for "{{query}}"</h1>
+{% endif %}
+</div>
+</div>
+<div class="col-6">
+  <div>{{MAP|safe}}</div>
+</div> 
+</div>
+</div> -->
+
+{% endblock content %}

@@ -1,0 +1,84 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+      <div class="col">
+        
+        <div>{{MAP|safe}}</div>
+      </div>
+    </div>
+</div>
+<div class="container" >
+    <h1 class="display-1">{{singleSite.siteName}}</h1>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        {{singleSite.siteAddress}}
+      </div>
+      <div class="col">
+        
+        <div>
+            {{singleSite.siteOwner}}
+            {{singleSite.siteOwnerNumber}}
+        </div>
+      </div>
+      <div class="col">
+        {{singleSite.siteVendor}}
+      </div>
+      <div class="col">
+       <a>site Provider</a> {{singleSite.siteProvider}}
+      </div>
+      <div class="col">
+       <a>Site FN</a> {{singleSite.siteFN}}
+      </div>
+      <div class="col">
+        <a>site Description</a> {{singleSite.siteDescription}}
+       </div>
+    </div>
+    <div class="row" style="padding-top: 20px;padding-bottom: 15px;">
+        <div class="col">
+            <a href="{{singleSite.siteFiles.url}}" class="card-link" download>
+                site File:  <button type="button" class="btn btn-primary">{{singleSite.siteFiles}}</button>
+              </a>
+        </div>
+        <div class="col">
+            <a href="{{singleSite.sitKPIrepo.url}}" class="card-link" download>
+                site KPI: <button type="button" class="btn btn-primary">{{singleSite.sitKPIrepo}}</button>
+              </a>
+        </div>
+        <div class="col">
+            <a href="#">site changed Parts:</a> {{singleSite.changedParts}}
+        </div>
+        <div class="col">
+            <a href="#">site History</a> {{singleSite.siteHistory}}
+        </div>
+        <div class="col">
+            <a href="#">site SFP Type</a> {{singleSite.siteSFPType}}
+        </div>
+    </div>
+    <div class="row" style="padding-top: 20px;padding-bottom: 15px;">
+        <div class="col">
+            <a href="#">site Type</a> {{singleSite.siteType}}
+        </div>
+        <div class="col">
+            <a>site Tower</a> {{singleSite.siteTower}}
+        </div>
+        <div class="col">
+            <a href="#">site Fiber Length</a> {{singleSite.siteFiberLength}}
+        </div>
+        <div class="col">
+            <a href="#">site IP</a> {{singleSite.siteIP}}
+        </div>
+        <div class="col">
+            <a href="#">site Cell Id</a> {{singleSite.siteCellId}}
+        </div>
+        <div class="col">
+            <a href="#">site acceptance Date</a> {{singleSite.acceptanceDate}}
+        </div>
+    </div>
+</div>
+{% endblock content %}
